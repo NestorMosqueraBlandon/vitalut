@@ -1,18 +1,34 @@
 /*=============================================
  =                   Foundations               =
  =============================================*/
-
  @import "foundation/all";
+
+
+@import "base/reset";
+ /*
+
 
  /*==============================================
  =                   Base                      =
- =============================================*/
+ =============================================
 
-@import "base/reset";
-@import "base/root";
+@import "base/root";*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+html{
+    font-size: 62.5%;
+    background-color: #f1f1f1;
+}
 
 body {
     font-family: var(--body-font-family);
     font-size: var(--body-font-size);
     font-weight: var(--body-font-weight);
+
+    font-family: "Inter", sans-serif;
+    font-size: 1.6rem;
+}
+
+
+ul{
+    list-style: none;
 }

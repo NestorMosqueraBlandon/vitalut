@@ -11,14 +11,14 @@
 =            Body font family                  =
 =============================================*/
 :root {
-  --body-font-family: var(--body-font-family, 'Playfair Display', serif);
+  --body-font-family: var(--body-font-family, Inter, sans-serif);
 }
 
 /*=============================================
 =            Body font sizes                  =
 =============================================*/
 :root {
-  --body-font-size: var(--body-font-size, 16px);
+  --body-font-size: var(--body-font-size, 1.6rem);
   --body-font-weight: var(--body-font-weight, normal);
 }
 
