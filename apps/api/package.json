@@ -1,0 +1,21 @@
+{
+  "name": "api",
+  "scripts": {
+    "dev": "tsx watch src/server/index.ts",
+    "build": "npx tsc",
+    "clean": "rm -rf ./build",
+    "release": "release-it --ci"
+  },
+  "dependencies": {
+    "@fastify/cors": "^8.4.1",
+    "@template/business-logic": "workspace:*",
+    "@template/core-modules": "workspace:^",
+    "fastify": "^4.24.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "tslib": "2.6.1",
+    "tsx": "^4.1.1",
+    "typescript": "^5.2.2"
+  }
+}

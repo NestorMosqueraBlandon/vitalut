@@ -1,0 +1,28 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDotEnv": [".env.local"],
+  "globalDependencies": ["**/.env.*local", "**/.env.production", "**/.env.development"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "lint": {},
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "release": {
+      "dependsOn": ["^release"],
+      "outputMode": "new-only"
+    }
+  },
+  "globalEnv": [
+    "CI",
+    "PORT",
+    "PREFIX",
+    "DATABASE_URL",
+    "NODE_ENV",
+    "SKIP_ENV_VALIDATION"
+  ]
+}

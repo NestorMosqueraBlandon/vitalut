@@ -1,0 +1,33 @@
+{
+  "name": "@template/business-logic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "dependencies": {
+    "@template/constant-definitions": "workspace:*",
+    "@template/entities": "workspace:*",
+    "fastify": "^4.24.3",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "~5.0.0",
+    "@types/jsonwebtoken": "~9.0.2",
+    "@types/node": "^20.5.2",
+    "eslint-config-custom": "workspace:*",
+    "tsconfig": "workspace:*",
+    "tslib": "~2.6.1",
+    "typescript": "~5.2.2"
+  },
+  "contributors": [
+    {
+      "name": "Nestor Mosquera",
+      "email": "yunsde26@gmail.com"
+    }
+  ],
+  "author": "Nestor Mosquera",
+  "license": "Apache-2.0"
+}
