@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from "./Button.module.css"
-
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?:
     | 'default'
