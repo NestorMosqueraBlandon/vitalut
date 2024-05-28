@@ -22,7 +22,8 @@
 .controls button{
     background-color: transparent;
     border: none;
-    color: rgba(0, 0, 0, .7);
+    color: rgba(0, 0, 0, .5);
+    cursor: pointer;
 }
 
 .options{
@@ -33,7 +34,7 @@
 
 .list{
     display: grid;
-    gap: 1rem;
+    gap: .7rem;
     margin-top: 1rem;
 }
 

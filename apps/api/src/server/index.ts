@@ -1,16 +1,23 @@
+import "dotenv/config"
 import fastify from 'fastify';
 import fastifyCors from '@fastify/cors';
 import { registerRoutes } from '../routes';
-import { verify } from '@template/business-logic';
+import { verify } from '@vitalut/business-logic';
 import { logger } from "@template/core-modules";
+import { initDataSources } from '@vitalut/data-sources';
 
-const { PORT, HOST } = process.env;
+const { PORT, HOST,MONGODB_URL } = process.env;
 
 const corsOptions = {
   origin: '*',
 };
 
-const main = () => {
+const main = async () => {
+  await initDataSources({ 
+    mongoose: {
+      mongoUrl: MONGODB_URL
+    }
+   });
   const server = fastify({
     logger
   });

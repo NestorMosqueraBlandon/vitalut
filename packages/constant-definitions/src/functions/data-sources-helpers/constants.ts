@@ -1,5 +1,9 @@
 export const MONGO_DATABASE_NAME = 'real-vision';
 
 export enum Collection {
-  TEST='tests'
+  USERS='users',
+  PATIENTS='patients',
+  APPOINTMENTS='appointments',
+  TASKS='tasks',
+  HOSTORIES='history',
 }

@@ -4,30 +4,31 @@ import {
   ArrowLeft,
   ArrowRight,
   Clock,
-  Zap,
   Calendar,
   List,
   Inbox,
   User,
   CreditCard,
 } from 'react-feather';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { Button } from '@vitalut/design-system/web';
+import New from './New';
 
 const Sidebar = () => {
+  const navigate = useNavigate();
     return (
       <aside className={styles.sidebar}>
       <div className={styles.side_header}>
         <h3>vitalut</h3>
         <div className={styles.controls}>
-          <button>
-            <ArrowLeft size={16} />
+          <button onClick={() => navigate(-1)}>
+            <ArrowLeft size={18} />
+          </button>
+          <button onClick={() => navigate(1)} >
+            <ArrowRight size={18} />
           </button>
           <button>
-            <ArrowRight size={16} />
-          </button>
-          <button>
-            <Clock size={16} />
+            <Clock size={18} />
           </button>
         </div>
       </div>
@@ -36,9 +37,10 @@ const Sidebar = () => {
         <Button>
           <Search size={16} />
         </Button>
-        <Button>
-          <Zap size={16} /> Nuevo...
-        </Button>
+        <New />
+        {/* <Button>
+          
+        </Button> */}
       </div>
       <ul className={styles.list}>
         <li>
