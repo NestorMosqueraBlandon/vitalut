@@ -17,7 +17,6 @@ const queryClient = new QueryClient({
 });
 
 const { VITE_GOOGLE_CLIENT_ID } = import.meta.env;
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
