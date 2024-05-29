@@ -8,10 +8,8 @@ import React, {
   useState,
 } from 'react';
 import styles from './Menus.module.css';
-import { MoreVertical } from 'react-feather';
 import { createPortal } from 'react-dom';
-import { useOutsideClick } from '@/hooks';
-import { Link } from 'react-router-dom';
+// import { useOutsideClick } from '@/hooks';
 
 // Definición de la interfaz Props para el componente principal Menus
 interface Props {
@@ -66,7 +64,7 @@ const Menu: FC<Props> = ({ children }) => {
 };
 
 // Componente Toggle (botón para abrir/cerrar el menú)
-const Toggle = ({ id, children }: { id: string; children?: ReactNode }) => {
+const Toggle = ({ id }: { id: string; children?: ReactNode }) => {
   const { openId, close, open, setPosition } = useContext(MenusContext);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -91,7 +89,7 @@ const Toggle = ({ id, children }: { id: string; children?: ReactNode }) => {
 
   return (
     <button className={styles.toggle} onClick={handleClick}>
-      {children ? children : <MoreVertical size={20} />}
+      {/* {children ? children : <MoreVertical size={20} />} */}
     </button>
   );
 };
@@ -102,22 +100,23 @@ interface ListProps {
   children: ReactNode;
 }
 
-const List: React.FC<ListProps> = ({ id, children }) => {
-  const { openId, position, close } = useContext(MenusContext);
-  const ref = useOutsideClick<HTMLUListElement>({
-    handler: close,
-    listenCapturing: true,
-  });
+const List: React.FC<ListProps> = ({ children }) => {
+  // const { openId, position, close } = useContext(MenusContext);
+  // const ref = useOutsideClick<HTMLUListElement>({
+  //   handler: close,
+  //   listenCapturing: true,
+  // });
 
   // Si el menú actual no está abierto, no se renderiza nada
-  if (openId !== id) return null;
+  // if (openId !== id) return null;
 
   // Se renderiza la lista de opciones del menú en el cuerpo del documento usando createPortal
   return createPortal(
     <ul
       className={styles.list}
-      style={{ top: position && position.y, right: position && position.x }}
-      ref={ref}>
+      // style={{ top: position && position.y, right: position && position.x }}
+      // ref={ref}
+      >
       {children}
     </ul>,
     document.body,
@@ -160,19 +159,12 @@ const Option = ({ children, onClick, ...rest }: ButtonProps) => {
   );
 };
 
-const LinkTo = ({
-  to,
-  children,
-  ...rest
-}: {
-  to: string;
-  children: ReactNode;
-}) => {
+const LinkTo = () => {
   return (
     <li>
-      <Link to={to} className={styles.button} {...rest}>
+      {/* <Link to={to} className={styles.button} {...rest}>
         {children}
-      </Link>
+      </Link> */}
     </li>
   );
 };

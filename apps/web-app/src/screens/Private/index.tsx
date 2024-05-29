@@ -14,7 +14,6 @@ const Private = () => {
             <Route path='mensajes' element={<Appointments />} />
             <Route path='pacientes' element={<Patients />} />
             <Route path='historias' element={<Histories />} />
-
         </Route>
     </Routes>
   )
