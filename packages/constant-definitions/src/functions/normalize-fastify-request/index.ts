@@ -1,6 +1,6 @@
 import { FastifyRequest } from 'fastify';
 
-import { alertOverrideConflict } from '../alert-override-conflict';
+// import { alertOverrideConflict } from '../alert-override-conflict';
 import { NormalizedRequest, RequestInterface } from '../../types';
 
 export const normalizeFastifyRequest = <R extends RequestInterface = RequestInterface>({
@@ -38,7 +38,7 @@ export const normalizeFastifyRequest = <R extends RequestInterface = RequestInte
 
   const path = url.split('?')[0];
 
-  alertOverrideConflict(body || {}, params || {}, (message) => console.error(message));
+  // alertOverrideConflict(body || {}, params || {}, (message) => console.error(message));
 
   const newBody = {
     ...((body as Record<string, unknown>) || {}),

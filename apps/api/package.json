@@ -1,8 +1,10 @@
 {
   "name": "api",
+  "version": "0.0.1",
   "scripts": {
     "dev": "tsx watch src/server/index.ts",
-    "build": "npx tsc",
+    "start": "node build/server/index.js",
+    "build": "esbuild src/**/*.ts --bundle --platform=node --target=node18 --outdir=build --minify --tree-shaking",
     "clean": "rm -rf ./build",
     "release": "release-it --ci"
   },
@@ -13,6 +15,9 @@
     "@vitalut/constant-definitions": "workspace:^",
     "@vitalut/data-sources": "workspace:^",
     "@vitalut/entities": "workspace:*",
+    "dotenv": "^16.4.5",
+    "esbuild": "^0.21.4",
+    "esbuild-plugin-node-externals": "^1.0.1",
     "fastify": "^4.24.3",
     "google-auth-library": "^9.10.0"
   },

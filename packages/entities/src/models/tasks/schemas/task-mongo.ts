@@ -5,11 +5,6 @@ import { Task } from './task';
 
 export const TaskSchemaMongo = new Schema<Task>({
     _id: { type: String, unique: true, default: () => crypto.randomUUID() },
-    name: { type: String},
-    lastname: { type: String},
-    photo: { type: String},
-    email: { type: String},
-    lastLogin: { type: String },
     status: { type: String, default: StatusType.ACTIVE }
 }, {
     versionKey: false,

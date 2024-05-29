@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import * as _ from 'lodash';
 import { NormalizedRequest } from '../../types';
 
 const FALLBACK_IPS = {
@@ -14,7 +14,7 @@ const FALLBACK_IPS = {
 const getHeader = (
   request: NormalizedRequest,
   headerName: string,
-): string => _.get(request.headers, headerName, '');
+): string => _.get(request.headers, headerName, '') as string;
 
 export const getIPFromRequest = (request: NormalizedRequest): string => {
   const { ip } = request;
