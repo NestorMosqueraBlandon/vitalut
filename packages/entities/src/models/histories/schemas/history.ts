@@ -1,21 +1,30 @@
 import { Base } from '../../../common';
+import { Patient } from '../../patients';
 
-export interface History extends Base {
-  patientId: string; // ID del paciente al que pertenece la historia clínica
+export interface HistoryBase extends Base {
+  patientId: string | Patient;
+  therapistId: string;
+  description: string;
   entries: ClinicalEntry[]; // Entradas de la historia clínica
 }
 
-interface ClinicalEntry {
+export interface History extends HistoryBase {
+  patientId: string
+}
+export interface HistoryWithPatient extends HistoryBase {
+  patientId: Patient
+}
+
+export interface ClinicalEntry {
   date: Date; // Fecha y hora de la entrada
-  type: 'assessment' | 'session' | 'progressNote' | 'medication'; // Tipo de entrada (evaluación, sesión, nota de progreso, medicación, etc.)
-  therapistId: string; // ID del psicólogo que realizó la entrada
+  type: "" | 'assessment' | 'session' | 'progressNote' | 'medication'; // Tipo de entrada (evaluación, sesión, nota de progreso, medicación, etc.)
   details: string; // Detalles o notas de la entrada
 
   // Campos adicionales según el tipo de entrada
   assessmentData?: AssessmentData; // Datos de evaluación (por ejemplo, resultados de pruebas psicométricas)
   sessionData?: SessionData; // Datos de sesión (por ejemplo, temas discutidos, ejercicios realizados)
   progressNoteData?: ProgressNoteData; // Datos de nota de progreso (por ejemplo, resumen de la sesión, plan de tratamiento)
-  medicationData?: MedicationData; // Datos de medicación (por ejemplo, nombre del medicamento, dosis, frecuencia)
+  medicationData?: MedicationData[]; // Datos de medicación (por ejemplo, nombre del medicamento, dosis, frecuencia)
 }
 
 interface AssessmentData {

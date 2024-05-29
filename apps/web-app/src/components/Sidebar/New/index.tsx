@@ -1,46 +1,74 @@
-import { Modal } from '@/containers'
-import { Button } from '@vitalut/design-system/web'
-import { Calendar, List, User, Zap } from 'react-feather'
-import styles from "./New.module.css"
+import { Button, Subtitle } from '@vitalut/design-system/web';
+import {  User, X, Zap } from 'react-feather';
+import styles from './New.module.css';
+import { CreatePatient } from '@/Modals/Patients';
+import { useState } from 'react';
+import { CreateHistory } from '@/Modals';
+import { CreateAppointment } from '@/Modals/Appoinetments';
 
 const New = () => {
+  const close = () => setOpenName('');
+  // const ref = useOutsideClick<HTMLDivElement>({
+  //   handler: close,
+  //   listenCapturing: true,
+  // });
+
+  const [openName, setOpenName] = useState('');
+
   return (
-    <Modal>
-         <Modal.Open opens="new-form">
-        <Button><Zap size={16} /> Nuevo...</Button>
-      </Modal.Open>
-      <Modal.Window width={850} title={'Crear un nuevo...'} name="new-form">
-        <div className={styles.container} >
-            <Button>
-            <Calendar size={16} color="#9333EA" /> 
-            <div>
+    <>
+      <Button onClick={() => setOpenName('modal')}>
+        <Zap size={16} /> Nuevo...
+      </Button>
+      {openName == 'modal' && (
+        <div className={styles.overlay}>
+          <div className={styles.modal}>
+            <div className={styles.header}>
+              <Subtitle
+                text={
+                  screen
+                    ? 'Nuevo precio de venta'
+                    : 'Administrar tarifas de venta'
+                }
+              />
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 10,
+                }}>
+                <Button onClick={close} variant="third">
+                  <X size={15} />
+                </Button>
+              </div>
+            </div>
 
-                <h3>Nueva Cita</h3>
-                <p>Agrega o programa</p>
-                </div>
-
-            </Button>
-            <Button>
-            <List size={16} color="#3B82F6" /> 
+            <div className={styles.container}>
+              <CreateAppointment />
+              <CreatePatient />
+              <CreateHistory />
+              <Button>
+                <User size={16} color="#14B8A6" />
                 <div>
-                    <h3>Nuevo Paciente</h3>
-                    <p>Agrega rapidamente pacientes</p>
+                  <h3>Nueva Tarea</h3>
+                  <p>Hacer algo</p>
                 </div>
-
-            </Button>
-            <Button>
-            <User size={16} color="#14B8A6" />
-            <div>
-
-                <h3>Nueva Tarea</h3>
-                <p>Hacer algo</p>
-                </div>
-
-            </Button>
+              </Button>
+            </div>
+            <div className={styles.footer}></div>
+          </div>
         </div>
-      </Modal.Window>
-    </Modal>
-  )
-}
+      )}
+    </>
+    // <ModalDest>
+    //      <ModalDest.Open opens="new-form">
+    //
+    //   </ModalDest.Open>
+    //   <ModalDest.Window width={850} title={'Crear un nuevo...'} name="new-form">
 
-export default New
+    //   </ModalDest.Window>
+    // </ModalDest>
+  );
+};
+
+export default New;

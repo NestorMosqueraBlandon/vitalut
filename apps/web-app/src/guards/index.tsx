@@ -1,4 +1,5 @@
 import { useUser } from '@/hooks';
+import { Loader } from '@vitalut/design-system/web';
 import { Navigate, Outlet } from 'react-router-dom';
 
 interface Props {
@@ -15,7 +16,7 @@ const GuardRoute = ({privateValidation}: Props) => {
 
   console.log(user)
 
-  if(isLoading) return <div>Cargando...</div>
+  if(isLoading) return <Loader />
 
   return user ? (
     privateValidation ? (

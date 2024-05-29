@@ -36,14 +36,12 @@ const Modal = ({children, defaultOpen}: { children: ReactNode,  defaultOpen?: st
     const [openName, setOpenName] = useState(defaultOpen ? defaultOpen : '');
     const navigate = useNavigate();
 
-
-
     const handleButtonClick = () => {
       navigate(-1);
     };
 
     const close = () => {
-        setOpenName('');
+        setOpenName(() => "");
         if(defaultOpen == "defaultModal"){
             handleButtonClick()
         }
@@ -61,21 +59,21 @@ const Open = ({children, onClick, opens: opensWindowName}: { children: JSX.Eleme
     const {open} = useContext(ModalContext);
 
     const handleOpen = () => {
-        onClick?.();
         open(opensWindowName)
+        onClick?.();
     }
-    return cloneElement(children, { onClick: () => handleOpen()  });
+    return cloneElement(children, { onClick: handleOpen  });
 }
 
 
 const Close = ({children, onClick}: { children: JSX.Element, onClick?: () => void}) => {
     const {close} = useContext(ModalContext);
 
-    const handleOpen = () => {
+    const handleClose = () => {
         onClick?.();
         close()
     }
-    return cloneElement(children, { onClick: () => handleOpen()  });
+    return cloneElement(children, { onClick: () => handleClose()  });
 }
 
 
@@ -84,6 +82,7 @@ const Window = ({children, header, name, width, style, title, element, styleHead
     const ref = useOutsideClick<HTMLDivElement>({handler: close, listenCapturing: true});
 
     if(name !== openName) return null;
+
 
   return createPortal (
     <div className={styles.overlay}>

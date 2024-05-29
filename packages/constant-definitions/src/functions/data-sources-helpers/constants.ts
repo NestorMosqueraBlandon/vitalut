@@ -5,5 +5,5 @@ export enum Collection {
   PATIENTS='patients',
   APPOINTMENTS='appointments',
   TASKS='tasks',
-  HOSTORIES='history',
+  HISTORIES='histories',
 }

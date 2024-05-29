@@ -5,11 +5,32 @@ import { Patient } from './patient';
 
 export const PatientSchemaMongo = new Schema<Patient>({
     _id: { type: String, unique: true, default: () => crypto.randomUUID() },
-    name: { type: String},
+    firstname: { type: String},
     lastname: { type: String},
-    photo: { type: String},
-    email: { type: String},
-    lastLogin: { type: String },
+    dateOfBirth: { type: Date },
+    therapistId: { type: String, ref: "users" },
+    gender: { type: String},
+    contactInfo: {
+        email: { type: String},
+        phone: { type: String},
+        address: { type: String},
+        city: { type: String},
+        state: { type: String},
+        country: { type: String},
+        zipCode: { type: String},
+    },
+    medicalHistory: {
+        allergies:[{ type: String}],
+        medications: [{ type: String}],
+        medicalConditions: [{ type: String}],
+        surgeries: [{ type: String}],
+        familyHistory: { type: String},
+    },
+    emergencyContact: {
+        name: { type: String},
+        relationship: { type: String},
+        phone: { type: String},
+    },
     status: { type: String, default: StatusType.ACTIVE }
 }, {
     versionKey: false,
@@ -17,7 +38,7 @@ export const PatientSchemaMongo = new Schema<Patient>({
 });
 
 PatientSchemaMongo.methods.toJSON = function () {
-    const { _id, ...user } = this.toObject();
-    user.id = _id;
-    return user;
+    const { _id, ...patient } = this.toObject();
+    patient.id = _id;
+    return patient;
 };

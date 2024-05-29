@@ -1,5 +1,5 @@
-import React from 'react';
 import styles from "./Button.module.css"
+import Loader from '../Loader';
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?:
     | 'default'
@@ -15,8 +15,9 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
 }
 
-const Button = ({ children, loading, ...rest }: Props) => {
-  return <button className={styles.button} {...rest}>{loading ? <div></div> : <>{ children }</>}</button>;
+const Button = ({ children, variant="default", loading, ...rest }: Props) => {
+  return <button       className={`${styles.button} ${styles[variant]} ${rest.className}`}
+  {...rest}>{loading ? <Loader small />: <>{ children }</>}</button>;
 };
 
 export default Button;

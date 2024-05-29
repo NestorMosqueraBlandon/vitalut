@@ -5,11 +5,33 @@ import { History } from './history';
 
 export const HistorySchemaMongo = new Schema<History>({
     _id: { type: String, unique: true, default: () => crypto.randomUUID() },
-    name: { type: String},
-    lastname: { type: String},
-    photo: { type: String},
-    email: { type: String},
-    lastLogin: { type: String },
+    patientId: { type: String, ref: "patients"},
+    therapistId: { type: String, ref: "users"},
+    description: { type: String },
+    entries: [{ 
+        date: { type: Date },
+        type: { type: String },
+        details: { type: String },
+        assessmentData: {
+            assessmentType: { type: String },
+            results: { type: String }
+        },
+        sessionData: {
+            topicsDiscussed: [{ type: String }],
+            exercisesPerformed: [{ type: String }]
+        },
+        progressNoteData: {
+            summary: { type: String },
+            treatmentPlan: { type: String }
+        },
+        medicationData: [{
+            medicationName: { type: String },
+            dosage: { type: String },
+            frequency: { type: String },
+            notes: { type: String }
+        }]
+
+    }],
     status: { type: String, default: StatusType.ACTIVE }
 }, {
     versionKey: false,

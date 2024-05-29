@@ -269,3 +269,12 @@
     border-radius: .5rem;
     padding: 2rem ;
 }
+
+.notes h4{
+    margin-bottom: 1.5rem;
+}
+
+.note{
+    font-size: 1.4rem;
+    margin-bottom: .5rem;
+}
