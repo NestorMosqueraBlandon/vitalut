@@ -4,7 +4,6 @@ import Appointments from './Appointments';
 import Tasks from './Tasks';
 import Histories from "./Histories"
 import Patients from './Patients';
-
 const Private = () => {
   return (
     <Routes>
