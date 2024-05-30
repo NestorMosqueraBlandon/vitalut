@@ -1,10 +1,11 @@
 import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
 import styles from "./Login.module.css"
 import { useLogin } from '@/hooks';
+import { Loader } from '@vitalut/design-system/web';
 
 
 const Login = () => {
-  const { login } = useLogin();
+  const { isLogging, login } = useLogin();
 
     const handleGoogleSuccess = async (
         credentialsResponse: CredentialResponse,
@@ -27,12 +28,17 @@ const Login = () => {
 
          <h2 className={styles.title}>Inicia sesión en Vitalut</h2>
         <div className={styles.social}>
-          <GoogleLogin
+          {isLogging ? (
+            <Loader />
+          ): (
+            <GoogleLogin
             width="600px"
             useOneTap
             onError={handleGoogleError}
             onSuccess={handleGoogleSuccess}
           />
+          )}
+        
         </div>
         </div>
 
