@@ -17,7 +17,8 @@ const Sidebar = () => {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.side_header}>
-        <h3>vitalut</h3>
+        <img className={styles.logo} src='/logo-tip.png' />
+        {/* <h3>vitalut</h3> */}
         <div className={styles.controls}>
           <button onClick={() => navigate(-1)}>
             <ArrowLeft size={18} />
