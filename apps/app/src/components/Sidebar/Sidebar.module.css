@@ -1,0 +1,52 @@
+
+
+.sidebar{
+    padding-inline: .5rem;
+}
+
+.side_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    color: rgba(0, 0, 0, .9);
+    padding-top: .5rem;
+}
+
+.controls{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.controls button{
+    background-color: transparent;
+    border: none;
+    color: rgba(0, 0, 0, .5);
+    cursor: pointer;
+}
+
+.options{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1rem;
+}
+
+.list{
+    display: grid;
+    gap: .7rem;
+    margin-top: 1rem;
+}
+
+.list li a{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: rgba(0, 0, 0, .7);
+    padding-block: 1rem;
+    cursor: pointer;
+    padding-left: 1rem;
+    text-decoration: none;
+}

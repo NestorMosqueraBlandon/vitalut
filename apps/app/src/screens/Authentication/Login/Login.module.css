@@ -1,0 +1,38 @@
+.container{
+    background-color: #F3F4F6;
+    background-image: url(https://demo.alloy.health/_nuxt/hos-brand-bg_2x.DoL4igNm.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-grow: 1;
+    height: 100vh;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.blue{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    pointer-events: none;
+    width: auto;
+    height: 3px;
+    opacity: 0;
+    background: rgb(16, 102, 239);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.1s ease 0s, height 0.4s ease 0s, opacity 0.4s ease 0s;
+    z-index: 999999;
+}
+.content{
+    background-color: rgba(255, 0255, 255, .5);
+    border-radius: 1rem;
+    padding: 4rem;
+    text-align: center;
+}
+
+.container h2{
+    margin-bottom: 2rem;
+}
