@@ -1,10 +1,9 @@
 import { Button, Subtitle } from '@vitalut/design-system/web';
 import {  X, Zap } from 'react-feather';
 import styles from './New.module.css';
-import { CreatePatient } from '@/modals/Patients';
 import { useState } from 'react';
-import { CreateHistory } from '@/modals';
 import { CreateAppointment } from '@/modals/Appoinetments';
+import { CreateHistory, CreatePatient } from '@/modals';
 import { CreateTask } from '@/modals/Tasks';
 
 const New = () => {
