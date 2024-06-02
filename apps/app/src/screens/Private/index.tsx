@@ -4,10 +4,12 @@ import Appointments from './Appointments';
 import Tasks from './Tasks';
 import Histories from "./Histories"
 import Patients from './Patients';
+import Home from './Home';
 const Private = () => {
   return (
     <Routes>
         <Route element={<Layout />}>
+           <Route path='/' element={<Home />} />
             <Route path='citas' element={<Appointments />} />
             <Route path='tareas' element={<Tasks />} />
             <Route path='mensajes' element={<Appointments />} />

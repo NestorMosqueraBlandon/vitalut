@@ -1,6 +1,6 @@
 import { useUser } from '@/hooks';
 import styles from './Header.module.css';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 const Header = () => {
   const { user } = useUser();
@@ -9,6 +9,8 @@ const Header = () => {
     <header className={styles.header}>
       <p>{transformPathname(pathname)}</p>
       <div className={styles.profile}>
+        <Link to="/" >
+
         <picture>
           <span className={styles.badge}></span>
           <img
@@ -16,6 +18,8 @@ const Header = () => {
             alt={user?.name}
           />
         </picture>
+        </Link>
+
       </div>
     </header>
   );
