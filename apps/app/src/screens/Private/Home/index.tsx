@@ -1,8 +1,8 @@
 import { useAppointments, useTasks, useUser } from '@/hooks';
 import styles from './Home.module.css';
-import { CreateAppointment } from '@/modals/Appoinetments';
-import { CreatePatient } from '@/modals';
-import { CreateTask } from '@/modals/Tasks';
+import { CreateAppointment } from '@/Modals/Appoinetments';
+import { CreatePatient } from '@/Modals';
+import { CreateTask } from '@/Modals/Tasks';
 import { Calendar, List } from 'react-feather';
 import { AppointmentWithPatient, TaskWithPatient } from '@vitalut/entities';
 

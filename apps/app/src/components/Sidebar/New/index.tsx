@@ -2,9 +2,9 @@ import { Button, Subtitle } from '@vitalut/design-system/web';
 import {  X, Zap } from 'react-feather';
 import styles from './New.module.css';
 import { useState } from 'react';
-import { CreateAppointment } from '@/modals/Appoinetments';
-import { CreateHistory, CreatePatient } from '@/modals';
-import { CreateTask } from '@/modals/Tasks';
+import { CreateAppointment } from '@/Modals/Appoinetments';
+import { CreateHistory, CreatePatient } from '@/Modals';
+import { CreateTask } from '@/Modals/Tasks';
 
 const New = () => {
   const close = () => setOpenName('');

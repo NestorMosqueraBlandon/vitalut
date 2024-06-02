@@ -12,7 +12,7 @@ import {
 } from '@vitalut/design-system/web';
 import { vitalutApi } from '@/api';
 import { Entry } from './entries';
-import { CreateHistory } from '@/modals';
+import { CreateHistory } from '@/Modals';
 const Histories = () => {
   const [content, setContent] = useState('');
   const [selectedPatient, setSelectedPatient] =
