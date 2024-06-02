@@ -1,19 +1,18 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import '@vitalut/design-system/web/global.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://acme.com'),
+  metadataBase: new URL('https://vitalut.com'),
   title: {
-    default: 'Template',
-    template: '%s | Template'
+    default: 'Software para el cuidado de las personas | Vitalut',
+    template: '%s | Vitalut'
   },
-  description: 'Next Template Description',
-  applicationName: 'Next.js',
-  keywords: ['Next.js', 'React', 'Javascript'],
-  authors: [ { name: 'Band', url: 'https://brand.com'} ],
+  description: 'Nuestro software facilita y mejora el cuidado de las personas, permitiendo a los profesionales de la salud gestionar historiales clínicos, realizar evaluaciones, planificar tratamientos y hacer seguimiento del progreso de sus pacientes de manera eficiente y segura. Ideal para psicólogos, terapeutas y otros especialistas.',
+  applicationName: 'Vitalut',
+  keywords: ['Historiales clínicos', 'tratamientos', 'Psicólogos', "Terapeutas"],
+  authors: [ { name: 'Nevobit', url: 'https://nevobit.io'} ],
   creator: 'Nevobit Software',
   publisher: 'Nevobit Software',
   alternates: {
@@ -24,18 +23,18 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: 'Template',
-    description:'Template',
+    title: 'Software para el cuidado de las personas | Vitalut',
+    description:'Nuestro software facilita y mejora el cuidado de las personas, permitiendo a los profesionales de la salud gestionar historiales clínicos, realizar evaluaciones, planificar tratamientos y hacer seguimiento del progreso de sus pacientes de manera eficiente y segura. Ideal para psicólogos, terapeutas y otros especialistas.',
     url: 'https://template.com',
-    siteName: 'Template',
+    siteName: 'Vitalut',
     type: 'website',
-    locale: 'en-US',
+    locale: 'es-ES',
   },
   twitter: {
-    title: 'Template',
-    description:'Template',
+    title: 'Software para el cuidado de las personas | Vitalut',
+    description:'Nuestro software facilita y mejora el cuidado de las personas, permitiendo a los profesionales de la salud gestionar historiales clínicos, realizar evaluaciones, planificar tratamientos y hacer seguimiento del progreso de sus pacientes de manera eficiente y segura. Ideal para psicólogos, terapeutas y otros especialistas.',
     creator: '@nevobitsoftware',
-    site: 'Template',
+    site: 'Vitalut',
     card: 'summary_large_image',
   }
 }
@@ -47,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={inter.className}>{children}</body>
     </html>
   )
