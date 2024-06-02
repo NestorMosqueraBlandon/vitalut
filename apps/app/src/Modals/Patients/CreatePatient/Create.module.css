@@ -1,0 +1,29 @@
+.tabs > div{
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+.list{
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.list .col{
+    display: grid;
+    grid-template-columns: 1fr 1fr 4rem;
+    gap: 1rem;
+}
+
+.btn{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.list .grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 4rem;
+    gap: 1rem;
+}

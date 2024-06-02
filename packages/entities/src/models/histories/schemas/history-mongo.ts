@@ -8,6 +8,7 @@ export const HistorySchemaMongo = new Schema<History>({
     patientId: { type: String, ref: "patients"},
     therapistId: { type: String, ref: "users"},
     description: { type: String },
+    reason: { type: String },
     entries: [{ 
         date: { type: Date },
         type: { type: String },

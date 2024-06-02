@@ -11,6 +11,7 @@ import {
 import { NavLink, useNavigate } from 'react-router-dom';
 import { Button } from '@vitalut/design-system/web';
 import New from './New';
+import { List } from 'react-feather';
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -47,11 +48,11 @@ const Sidebar = () => {
             <Calendar size={16} color="#9333EA" /> Citas
           </NavLink>
         </li>
-        {/* <li>
+        <li>
           <NavLink to="/tareas">
             <List size={16} color="#3B82F6" /> Tareas
           </NavLink>
-        </li> */}
+        </li>
         <li>
           {' '}
           <NavLink to="/historias">

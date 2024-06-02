@@ -77,8 +77,10 @@ const CreateAppoitmentForm = ({
       </form>
 
       <Button
+      variant='primary'
         style={{
-          marginTop: 20,
+          marginTop: 40,
+          marginBottom: 20
         }}
         loading={isCreating}
         type="button"

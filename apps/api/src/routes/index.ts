@@ -8,6 +8,7 @@ import { getUserByIdRoute } from './users/get-by-id';
 import { patientsRoutes } from './patients';
 import { historiesRoutes } from './histories';
 import { appointmentsRoutes } from './appointments';
+import { tasksRoutes } from './tasks';
 
 
 const routes: RouteOptions[] = [
@@ -16,7 +17,8 @@ const routes: RouteOptions[] = [
   getUserByIdRoute,
   ...patientsRoutes,
   ...historiesRoutes,
-  ...appointmentsRoutes
+  ...appointmentsRoutes,
+  ...tasksRoutes
 ];
 
 export const registerRoutes = (fastify: FastifyInstance) => {

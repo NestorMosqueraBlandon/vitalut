@@ -3,3 +3,4 @@ export * from './auth';
 export * from './histories';
 export * from './patients';
 export * from './users';
+export * from './tasks';

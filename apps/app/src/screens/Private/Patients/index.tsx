@@ -7,7 +7,7 @@ import {
 import { useDeletePatient, usePatients } from '@/hooks';
 import { Patient } from '@vitalut/entities';
 import { Button, Loader } from '@vitalut/design-system/web';
-import { CreatePatient } from '@/Modals/Patients';
+import { CreatePatient } from '@/modals/Patients';
 
 const Patients = () => {
   const [selectedPatient, setSelectedPatient] = useState<Partial<Patient | null>>(null);

@@ -1,0 +1,40 @@
+.list{
+    display: flex;
+    gap: 2rem;
+}
+
+.list li{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 2rem;
+    padding: .5rem 1rem;
+    font-size: 1.4rem;
+}
+
+.list li button{
+    display: flex;
+    background-color: transparent;
+}
+
+.search_input{
+    position: relative;
+    display: inline-block;
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+    overflow: hidden;
+    background-color: #fff;
+    padding-inline: 1rem;
+    font-size: 1.4rem;
+}
+
+.tag_btn{
+    border: none;
+    cursor: pointer;
+}

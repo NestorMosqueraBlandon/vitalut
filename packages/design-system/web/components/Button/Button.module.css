@@ -16,3 +16,8 @@
     justify-content: center;
     gap: .5rem;
 }
+
+.primary{
+    background-color: #004FA3;
+    color: #fff;
+}

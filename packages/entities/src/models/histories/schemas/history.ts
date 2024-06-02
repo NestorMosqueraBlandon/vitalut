@@ -4,6 +4,7 @@ import { Patient } from '../../patients';
 export interface HistoryBase extends Base {
   patientId: string | Patient;
   therapistId: string;
+  reason: string;
   description: string;
   entries: ClinicalEntry[]; // Entradas de la historia clínica
 }

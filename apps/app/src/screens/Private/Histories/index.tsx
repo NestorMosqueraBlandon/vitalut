@@ -4,14 +4,15 @@ import StarterKit from '@tiptap/starter-kit';
 import styles from './Histories.module.css';
 import { useDeleteHistory, useForm, useHistories } from '@/hooks';
 import { History, HistoryWithPatient } from '@vitalut/entities';
-import { Inbox,  Trash, } from 'react-feather';
+import { Inbox, Trash, Plus, Save } from 'react-feather';
 import {
   Button,
+  Input,
   Loader,
 } from '@vitalut/design-system/web';
 import { vitalutApi } from '@/api';
 import { Entry } from './entries';
-import { CreateHistory } from '@/Modals';
+import { CreateHistory } from '@/modals';
 const Histories = () => {
   const [content, setContent] = useState('');
   const [selectedPatient, setSelectedPatient] =
@@ -34,6 +35,7 @@ const Histories = () => {
 
   const {
     formState: history,
+    handleChange,
     setFormState,
   } = useForm<Partial<History | HistoryWithPatient | null>>({
     entries: [
@@ -58,20 +60,22 @@ const Histories = () => {
     setFormState(selectedPatient);
   }, [editor, selectedPatient]);
 
-  useEffect(() => {
-    const saveContent = async () => {
-      try {
-        await vitalutApi.patch('/histories', {
-          id: selectedPatient?.id,
-          ...history,
-          description: content,
-        });
-        console.log('Content saved');
-      } catch (error) {
-        console.error('Error saving content:', error);
-      }
-    };
-
+  const [isLoadingUpdate, setIsLoading] = useState(false)
+  const saveContent = async () => {
+    try {
+      setIsLoading(true);
+      await vitalutApi.patch('/histories', {
+        id: selectedPatient?.id,
+        ...history,
+        description: content,
+      });
+      setIsLoading(false)
+      console.log('Content saved');
+    } catch (error) {
+      setIsLoading(false)
+      console.error('Error saving content:', error);
+    }
+  };  useEffect(() => {
     if (content) {
       const timeoutId = setTimeout(saveContent, 3000); // Guarda automáticamente después de 1 segundo
       return () => clearTimeout(timeoutId); // Limpia el timeout si hay un nuevo cambio antes de guardar
@@ -127,8 +131,6 @@ const Histories = () => {
   }
 
   };
-
-  console.log(history);
 
   useEffect(() => {
     if (histories?.length > 0) {
@@ -192,6 +194,11 @@ const Histories = () => {
             </div>
             <div className={styles.container_details}>
               <div className={styles.details}>
+              <div className={styles.notes}>
+                  <h4>Motivo de la Consulta</h4>
+                  <Input defaultValue={selectedPatient?.reason} name='reason' onChange={handleChange} />
+                </div>
+
                 <div className={styles.notes}>
                   <h4>Descripción General</h4>
 
@@ -202,7 +209,9 @@ const Histories = () => {
                   />
                 </div>
 
-                <Button onClick={addEntry}>Agregar Entrada</Button>
+                <Button style={{
+                  marginTop: 30
+                }} onClick={addEntry}><Plus size={16} /> Agregar Entrada</Button>
 
                 <div className={styles.entries}>
                   {history?.entries?.map((entry, index) => (
@@ -223,7 +232,14 @@ const Histories = () => {
                     handleEntryChange={handleEntryChange}
                   />
                 ))}
+
+                <div className={styles.btn}>
+                <Button loading={isLoadingUpdate} variant='primary' onClick={saveContent} >Guardar <Save  size={16}/> </Button>
+
+                </div>
+
               </div>
+
             </div>
           </div>
         )}

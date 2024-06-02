@@ -1,10 +1,11 @@
 import { Button, Subtitle } from '@vitalut/design-system/web';
-import {  User, X, Zap } from 'react-feather';
+import {  X, Zap } from 'react-feather';
 import styles from './New.module.css';
-import { CreatePatient } from '@/Modals/Patients';
+import { CreatePatient } from '@/modals/Patients';
 import { useState } from 'react';
-import { CreateHistory } from '@/Modals';
-import { CreateAppointment } from '@/Modals/Appoinetments';
+import { CreateHistory } from '@/modals';
+import { CreateAppointment } from '@/modals/Appoinetments';
+import { CreateTask } from '@/modals/Tasks';
 
 const New = () => {
   const close = () => setOpenName('');
@@ -47,13 +48,7 @@ const New = () => {
               <CreateAppointment />
               <CreatePatient />
               <CreateHistory />
-              <Button>
-                <User size={16} color="#14B8A6" />
-                <div>
-                  <h3>Nueva Tarea</h3>
-                  <p>Hacer algo</p>
-                </div>
-              </Button>
+              <CreateTask />
             </div>
             <div className={styles.footer}></div>
           </div>
