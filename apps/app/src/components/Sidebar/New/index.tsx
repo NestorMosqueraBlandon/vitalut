@@ -27,7 +27,7 @@ const New = () => {
               <Subtitle
                 text={
                   screen
-                    ? 'Nuevo precio de venta'
+                    ? 'Nuevo...'
                     : 'Administrar tarifas de venta'
                 }
               />
