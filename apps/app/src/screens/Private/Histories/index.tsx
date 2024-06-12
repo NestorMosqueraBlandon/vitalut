@@ -13,6 +13,7 @@ import {
 import { vitalutApi } from '@/api';
 import { Entry } from './entries';
 import { CreateHistory } from '@/Modals';
+import { useGenerateReport } from '@/hooks/histories/useGenerateReport';
 const Histories = () => {
   const [content, setContent] = useState('');
   const [selectedPatient, setSelectedPatient] =
@@ -32,6 +33,7 @@ const Histories = () => {
   });
 
   const { isDeleting, deleteHistory } = useDeleteHistory();
+  const { isGenerating, generateReport } = useGenerateReport();
 
   const {
     formState: history,
@@ -191,6 +193,9 @@ const Histories = () => {
               setSelectedPatient(null)
             }
           })}  ><Trash size={15} /> Eliminar Historia</Button>
+               <Button style={{
+            marginLeft: 20
+          }} variant="danger" loading={isGenerating} onClick={() => generateReport()}  ><Trash size={15} /> Generar Reporte</Button>
             </div>
             <div className={styles.container_details}>
               <div className={styles.details}>

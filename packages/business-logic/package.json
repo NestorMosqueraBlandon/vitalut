@@ -12,12 +12,14 @@
     "@vitalut/entities": "workspace:*",
     "fastify": "^4.24.3",
     "google-auth-library": "^9.10.0",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "pdfmake": "^0.2.10"
   },
   "devDependencies": {
     "@types/bcrypt": "~5.0.0",
     "@types/jsonwebtoken": "~9.0.5",
     "@types/node": "^20.5.2",
+    "@types/pdfmake": "^0.2.9",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*",
     "tslib": "~2.6.1",

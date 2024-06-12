@@ -1,0 +1,30 @@
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    width: min(90%, 120rem);
+    margin-inline: auto;
+}
+
+.nav ul{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav ul li a{
+    color: #40546c;
+}
+
+.nav .btn{
+    display: inline-flex;
+    border: none;
+    padding-block: 1.2rem;
+    padding-inline: 3rem;
+    font-size: 1.5rem;
+    border-radius: 1.5rem;
+    background-color: #1E4E9D;
+    color: #fff;
+    font-weight: 600;
+}

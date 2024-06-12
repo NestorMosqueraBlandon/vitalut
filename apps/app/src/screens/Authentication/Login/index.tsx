@@ -16,7 +16,6 @@ const Login = () => {
         }
       };
       const handleGoogleError = () => {
-        alert("Error")
       };
 
   return (
