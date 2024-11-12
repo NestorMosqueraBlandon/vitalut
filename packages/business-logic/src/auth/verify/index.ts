@@ -1,7 +1,7 @@
 import * as jwt from 'jsonwebtoken';
 import { FastifyRequest, FastifyReply } from 'fastify';
 
-const { NODE_ENV, API_KEY, JWT_SECRET } = process.env;
+const { API_KEY, JWT_SECRET } = process.env;
 
 
 interface FastifyRequestUser extends FastifyRequest {
@@ -11,7 +11,7 @@ interface FastifyRequestUser extends FastifyRequest {
 
 export const verify = (request:FastifyRequest, reply: FastifyReply, done: () => void) => {
     const apiKey = request.headers['api-key'];
-    const isHttps = request.protocol === 'https' || NODE_ENV! == 'development';
+    const isHttps = true;
     
     if(!isHttps) return reply.code(400).send('Bad Request: The request must be made over HTTPS'); 
     

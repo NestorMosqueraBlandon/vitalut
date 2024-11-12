@@ -9,11 +9,13 @@ import { patientsRoutes } from './patients';
 import { historiesRoutes } from './histories';
 import { appointmentsRoutes } from './appointments';
 import { tasksRoutes } from './tasks';
+import { loginWithEmailRoute } from './auth/login-with-email';
 
 
 const routes: RouteOptions[] = [
   healthCheckRoute,
   loginRoute,
+  loginWithEmailRoute,
   getUserByIdRoute,
   ...patientsRoutes,
   ...historiesRoutes,

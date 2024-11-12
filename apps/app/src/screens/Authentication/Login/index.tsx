@@ -1,22 +1,13 @@
-import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
 import styles from "./Login.module.css"
 import { useLogin } from '@/hooks';
 import { Loader } from '@vitalut/design-system/web';
+import { useLoginWithEmail } from '@/hooks/auth/useLoginWithEmail';
 
 
 const Login = () => {
-  const { isLogging, login } = useLogin();
+  const { isLogging } = useLogin();
+  const { login: loginWithEmail } = useLoginWithEmail();
 
-    const handleGoogleSuccess = async (
-        credentialsResponse: CredentialResponse,
-      ) => {
-        if (credentialsResponse.credential) {
-          const token_id = credentialsResponse.credential;
-          login(token_id)
-        }
-      };
-      const handleGoogleError = () => {
-      };
 
   return (
     <div className={styles.container}>
@@ -30,12 +21,9 @@ const Login = () => {
           {isLogging ? (
             <Loader />
           ): (
-            <GoogleLogin
-            width="600px"
-            useOneTap
-            onError={handleGoogleError}
-            onSuccess={handleGoogleSuccess}
-          />
+            <button onClick={() => loginWithEmail(
+              'yunsde26@gmail.com',
+            )} >Login</button>
           )}
         
         </div>

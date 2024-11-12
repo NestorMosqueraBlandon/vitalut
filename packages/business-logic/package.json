@@ -13,7 +13,8 @@
     "fastify": "^4.24.3",
     "google-auth-library": "^9.10.0",
     "jsonwebtoken": "^9.0.2",
-    "pdfmake": "^0.2.10"
+    "pdfmake": "^0.2.10",
+    "resend": "^4.0.0"
   },
   "devDependencies": {
     "@types/bcrypt": "~5.0.0",

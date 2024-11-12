@@ -10,3 +10,15 @@ export const loginApi = async(id: string) => {
     localStorage.setItem('token', data);
     return data;
 }
+
+
+export const loginWithEmailApi = async(email: string) => {
+    const { data } = await vitalutApi.post("/auth/login/email", { email }, {
+        headers: {
+            "api-key": "1234"
+        }
+    });
+
+    localStorage.setItem('token', data);
+    return data;
+}
